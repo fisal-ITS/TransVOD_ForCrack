@@ -20,6 +20,7 @@ import torch
 from torch.utils.data import DataLoader
 import datasets
 
+from torch.utils.tensorboard import SummaryWriter
 import datasets.samplers as samplers
 from datasets import build_dataset, get_coco_api_from_dataset
 from models import build_model
