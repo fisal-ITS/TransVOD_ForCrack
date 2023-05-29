@@ -292,7 +292,7 @@ def main(args):
         train_stats = train_one_epoch(
             model, criterion, data_loader_train, optimizer, device, epoch, args.clip_max_norm)
 	loss = train_stats['loss']
-        writer.add_scalar("Loss/train", loss, epoch)
+	writer.add_scalar("Loss/train", loss, epoch)
         lr_scheduler.step()
         print('args.output_dir', args.output_dir)
         if args.output_dir:
