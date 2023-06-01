@@ -269,8 +269,8 @@ def main(args):
 	                    param.requires_grad = True
 					else:
 	                    param.requires_grad = False
-				
-		missing_keys, unexpected_keys = model_without_ddp.load_state_dict(tmp_dict, strict=False)
+			missing_keys, unexpected_keys = model_without_ddp.load_state_dict(tmp_dict, strict=False)
+			
         unexpected_keys = [k for k in unexpected_keys if not (k.endswith('total_params') or k.endswith('total_ops'))]
         if len(missing_keys) > 0:
             print('Missing Keys: {}'.format(missing_keys))
