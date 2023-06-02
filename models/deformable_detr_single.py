@@ -446,7 +446,11 @@ def build(args):
     num_classes = 2
     device = torch.device(args.device)
 
-    backbone = build_backbone(args)
+    if 'swin' in args.backbone:
+        from .swin_transformer import build_swin_backbone
+        backbone = build_swin_backbone(args) 
+    else:
+        backbone = build_backbone(args)
 
     transformer = build_deforamble_transformer(args)
     model = DeformableDETR(
