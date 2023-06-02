@@ -52,7 +52,7 @@ def get_args_parser():
     # Model parameters
     parser.add_argument('--frozen_weights', type=str, default=None,
                         help="Path to the pretrained model. If set, only the mask head will be trained")
-
+    parser.add_argument('--pretrained', default=None, help='resume from checkpoint')
     # * Backbone
     parser.add_argument('--backbone', default='resnet50', type=str,
                         help="Name of the convolutional backbone to use")
@@ -63,7 +63,7 @@ def get_args_parser():
     parser.add_argument('--position_embedding_scale', default=2 * np.pi, type=float,
                         help="position / size * scale")
     parser.add_argument('--num_feature_levels', default=4, type=int, help='number of feature levels')
-
+    parser.add_argument('--checkpoint', default=False, action='store_true')
 
     # * Transformer
     parser.add_argument('--enc_layers', default=6, type=int,
